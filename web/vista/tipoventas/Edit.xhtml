@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TipoventasEditDlg" widgetVar="TipoventasEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTipoventasTitle}">
+            <h:form id="TipoventasEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tipoventasController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditTipoventasLabel_idtipoventas}" for="idtipoventas" />
+                        <p:inputText id="idtipoventas" value="#{tipoventasController.selected.idtipoventas}" title="#{bundle.EditTipoventasTitle_idtipoventas}" required="true" requiredMessage="#{bundle.EditTipoventasRequiredMessage_idtipoventas}"/>
+                        <p:outputLabel value="#{bundle.EditTipoventasLabel_tipoVenta}" for="tipoVenta" />
+                        <p:inputText id="tipoVenta" value="#{tipoventasController.selected.tipoVenta}" title="#{bundle.EditTipoventasTitle_tipoVenta}" />
+                        <p:outputLabel value="#{bundle.EditTipoventasLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{tipoventasController.selected.descripcion}" title="#{bundle.EditTipoventasTitle_descripcion}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tipoventasController.update}" value="#{bundle.Save}" update="display,:TipoventasListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TipoventasEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TipoventasEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

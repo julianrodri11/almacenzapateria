@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="StockCreateDlg" widgetVar="StockCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateStockTitle}">
+            <h:form id="StockCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{stockController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateStockLabel_idstock}" for="idstock" />
+                        <p:inputText id="idstock" value="#{stockController.selected.idstock}" title="#{bundle.CreateStockTitle_idstock}" required="true" requiredMessage="#{bundle.CreateStockRequiredMessage_idstock}"/>
+                        <p:outputLabel value="#{bundle.CreateStockLabel_cantidad}" for="cantidad" />
+                        <p:inputText id="cantidad" value="#{stockController.selected.cantidad}" title="#{bundle.CreateStockTitle_cantidad}" />
+                        <p:outputLabel value="#{bundle.CreateStockLabel_productosIdproductos}" for="productosIdproductos" />
+                        <p:selectOneMenu id="productosIdproductos" value="#{stockController.selected.productosIdproductos}" required="true" requiredMessage="#{bundle.EditStockRequiredMessage_productosIdproductos}">
+                            <f:selectItems value="#{productosController.itemsAvailableSelectOne}"
+                                           var="productosIdproductosItem"
+                                           itemValue="#{productosIdproductosItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateStockLabel_usuariosIdusuarios}" for="usuariosIdusuarios" />
+                        <p:selectOneMenu id="usuariosIdusuarios" value="#{stockController.selected.usuariosIdusuarios}" required="true" requiredMessage="#{bundle.EditStockRequiredMessage_usuariosIdusuarios}">
+                            <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"
+                                           var="usuariosIdusuariosItem"
+                                           itemValue="#{usuariosIdusuariosItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{stockController.create}" value="#{bundle.Save}" update="display,:StockListForm:datalist,:growl" oncomplete="handleSubmit(args,'StockCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="StockCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

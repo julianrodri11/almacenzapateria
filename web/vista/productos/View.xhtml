@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProductosViewDlg" widgetVar="ProductosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewProductosTitle}">
+            <h:form id="ProductosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{productosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewProductosLabel_idproductos}"/>
+                        <h:outputText value="#{productosController.selected.idproductos}" title="#{bundle.ViewProductosTitle_idproductos}"/>
+                        <h:outputText value="#{bundle.ViewProductosLabel_producto}"/>
+                        <h:outputText value="#{productosController.selected.producto}" title="#{bundle.ViewProductosTitle_producto}"/>
+                        <h:outputText value="#{bundle.ViewProductosLabel_precio}"/>
+                        <h:outputText value="#{productosController.selected.precio}" title="#{bundle.ViewProductosTitle_precio}"/>
+                        <h:outputText value="#{bundle.ViewProductosLabel_descripcion}"/>
+                        <h:outputText value="#{productosController.selected.descripcion}" title="#{bundle.ViewProductosTitle_descripcion}"/>
+                        <h:outputText value="#{bundle.ViewProductosLabel_imagen}"/>
+                        <h:outputText value="#{productosController.selected.imagen}" title="#{bundle.ViewProductosTitle_imagen}"/>
+                        <h:outputText value="#{bundle.ViewProductosLabel_color}"/>
+                        <h:outputText value="#{productosController.selected.color}" title="#{bundle.ViewProductosTitle_color}"/>
+                        <h:outputText value="#{bundle.ViewProductosLabel_talla}"/>
+                        <h:outputText value="#{productosController.selected.talla}" title="#{bundle.ViewProductosTitle_talla}"/>
+                        <h:outputText value="#{bundle.ViewProductosLabel_materialesIdmateriales}"/>
+                        <h:outputText value="#{productosController.selected.materialesIdmateriales.material}" title="#{bundle.ViewProductosTitle_materialesIdmateriales}"/>
+                        <h:outputText value="#{bundle.ViewProductosLabel_categoriasIdcategorias}"/>
+                        <h:outputText value="#{productosController.selected.categoriasIdcategorias.categoria}" title="#{bundle.ViewProductosTitle_categoriasIdcategorias}"/>
+                        <h:outputText value="#{bundle.ViewProductosLabel_marcasIdmarcas}"/>
+                        <h:outputText value="#{productosController.selected.marcasIdmarcas.marca}" title="#{bundle.ViewProductosTitle_marcasIdmarcas}"/>
+                        <h:outputText value="#{bundle.ViewProductosLabel_sucursalesIdsucursales}"/>
+                        <h:outputText value="#{productosController.selected.sucursalesIdsucursales.almacenesIdalmacenes} #{productosController.selected.sucursalesIdsucursales.ciudadesIdciudades}" title="#{bundle.ViewProductosTitle_sucursalesIdsucursales}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ProductosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

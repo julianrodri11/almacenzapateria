@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UsuariosCreateDlg" widgetVar="UsuariosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUsuariosTitle}">
+            <h:form id="UsuariosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{usuariosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_idusuarios}" for="idusuarios" />
+                        <p:inputText id="idusuarios" value="#{usuariosController.selected.idusuarios}" title="#{bundle.CreateUsuariosTitle_idusuarios}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_idusuarios}"/>
+                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_primerNombre}" for="primerNombre" />
+                        <p:inputText id="primerNombre" value="#{usuariosController.selected.primerNombre}" title="#{bundle.CreateUsuariosTitle_primerNombre}" required="true"/>
+                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_segundoNombre}" for="segundoNombre" />
+                        <p:inputText id="segundoNombre" value="#{usuariosController.selected.segundoNombre}" title="#{bundle.CreateUsuariosTitle_segundoNombre}" />
+                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_primerApellido}" for="primerApellido" />
+                        <p:inputText id="primerApellido" value="#{usuariosController.selected.primerApellido}" title="#{bundle.CreateUsuariosTitle_primerApellido}" required="true" />
+                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_segundoApellido}" for="segundoApellido" />
+                        <p:inputText id="segundoApellido" value="#{usuariosController.selected.segundoApellido}" title="#{bundle.CreateUsuariosTitle_segundoApellido}" />
+                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{usuariosController.selected.celular}" title="#{bundle.CreateUsuariosTitle_celular}" />
+                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{usuariosController.selected.direccion}" title="#{bundle.CreateUsuariosTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_genero}" for="genero" />
+                        <p:selectOneMenu id="genero" value="#{usuariosController.selected.genero}" style="width:125px" effect="fold" required="true">
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+                            <f:selectItem itemLabel="Femenino" itemValue="Femenino" />                            
+                        </p:selectOneMenu>                     
+                        
+                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_fechaNacimiento}" for="fechaNacimiento" />
+                        <p:calendar id="fechaNacimiento" pattern="MM/dd/yyyy" value="#{usuariosController.selected.fechaNacimiento}" title="#{bundle.EditUsuariosTitle_fechaNacimiento}"  showOn="button" required="true"/>
+                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_foto}" for="foto" />
+                        <p:inputText id="foto" value="#{usuariosController.selected.foto}" title="#{bundle.CreateUsuariosTitle_foto}" />
+                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_correo}" for="correo" />
+                        <p:inputText id="correo" value="#{usuariosController.selected.correo}" title="#{bundle.CreateUsuariosTitle_correo}" required="true"/>
+                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_contrasena}" for="contrasena" />
+                        <p:inputTextarea rows="4" cols="30" id="contrasena" value="#{usuariosController.selected.contrasena}" title="#{bundle.CreateUsuariosTitle_contrasena}" required="true"/>
+                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_almacenesIdalmacenes}" for="almacenesIdalmacenes" />
+                        <p:selectOneMenu id="almacenesIdalmacenes" value="#{usuariosController.selected.almacenesIdalmacenes}" required="true" requiredMessage="#{bundle.EditUsuariosRequiredMessage_almacenesIdalmacenes}">
+                            <f:selectItems value="#{almacenesController.itemsAvailableSelectOne}"
+                                           var="almacenesIdalmacenesItem"
+                                           itemValue="#{almacenesIdalmacenesItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateUsuariosLabel_ciudadesIdciudades}" for="ciudadesIdciudades" />
+                        <p:selectOneMenu id="ciudadesIdciudades" value="#{usuariosController.selected.ciudadesIdciudades}" required="true" requiredMessage="#{bundle.EditUsuariosRequiredMessage_ciudadesIdciudades}">
+                            <f:selectItems value="#{ciudadesController.itemsAvailableSelectOne}"
+                                           var="ciudadesIdciudadesItem"
+                                           itemValue="#{ciudadesIdciudadesItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{usuariosController.create}" value="#{bundle.Save}" update="display,:UsuariosListForm:datalist,:growl" oncomplete="handleSubmit(args,'UsuariosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UsuariosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

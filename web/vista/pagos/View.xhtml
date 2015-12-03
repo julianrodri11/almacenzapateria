@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PagosViewDlg" widgetVar="PagosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPagosTitle}">
+            <h:form id="PagosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{pagosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPagosLabel_idpago}"/>
+                        <h:outputText value="#{pagosController.selected.idpago}" title="#{bundle.ViewPagosTitle_idpago}"/>
+                        <h:outputText value="#{bundle.ViewPagosLabel_nopagos}"/>
+                        <h:outputText value="#{pagosController.selected.nopagos}" title="#{bundle.ViewPagosTitle_nopagos}"/>
+                        <h:outputText value="#{bundle.ViewPagosLabel_valorPagoCuota}"/>
+                        <h:outputText value="#{pagosController.selected.valorPagoCuota}" title="#{bundle.ViewPagosTitle_valorPagoCuota}"/>
+                        <h:outputText value="#{bundle.ViewPagosLabel_fechaAPagar}"/>
+                        <h:outputText value="#{pagosController.selected.fechaAPagar}" title="#{bundle.ViewPagosTitle_fechaAPagar}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPagosLabel_hora}"/>
+                        <h:outputText value="#{pagosController.selected.hora}" title="#{bundle.ViewPagosTitle_hora}">
+                            <f:convertDateTime pattern="HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPagosLabel_estadocuotasIdestadocuotas}"/>
+                        <h:outputText value="#{pagosController.selected.estadocuotasIdestadocuotas.nombreEstCuota}" title="#{bundle.ViewPagosTitle_estadocuotasIdestadocuotas}"/>
+                        <h:outputText value="#{bundle.ViewPagosLabel_facturasIdfacturas}"/>
+                        <h:outputText value="#{pagosController.selected.facturasIdfacturas.idfacturas}" title="#{bundle.ViewPagosTitle_facturasIdfacturas}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PagosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

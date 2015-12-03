@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CiudadesCreateDlg" widgetVar="CiudadesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCiudadesTitle}">
+            <h:form id="CiudadesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ciudadesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCiudadesLabel_idciudades}" for="idciudades" />
+                        <p:inputText id="idciudades" value="#{ciudadesController.selected.idciudades}" title="#{bundle.CreateCiudadesTitle_idciudades}" required="true" requiredMessage="#{bundle.CreateCiudadesRequiredMessage_idciudades}"/>
+                        <p:outputLabel value="#{bundle.CreateCiudadesLabel_ciudad}" for="ciudad" />
+                        <p:inputText id="ciudad" value="#{ciudadesController.selected.ciudad}" title="#{bundle.CreateCiudadesTitle_ciudad}" />
+                        <p:outputLabel value="#{bundle.CreateCiudadesLabel_departamentosIddepartamentos}" for="departamentosIddepartamentos" />
+                        <p:selectOneMenu id="departamentosIddepartamentos" value="#{ciudadesController.selected.departamentosIddepartamentos}" required="true" requiredMessage="#{bundle.EditCiudadesRequiredMessage_departamentosIddepartamentos}">
+                            <f:selectItems value="#{departamentosController.itemsAvailableSelectOne}"
+                                           var="departamentosIddepartamentosItem"
+                                           itemValue="#{departamentosIddepartamentosItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{ciudadesController.create}" value="#{bundle.Save}" update="display,:CiudadesListForm:datalist,:growl" oncomplete="handleSubmit(args,'CiudadesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CiudadesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

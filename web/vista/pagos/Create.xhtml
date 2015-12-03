@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PagosCreateDlg" widgetVar="PagosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreatePagosTitle}">
+            <h:form id="PagosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{pagosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreatePagosLabel_idpago}" for="idpago" />
+                        <p:inputText id="idpago" value="#{pagosController.selected.idpago}" title="#{bundle.CreatePagosTitle_idpago}" required="true" requiredMessage="#{bundle.CreatePagosRequiredMessage_idpago}"/>
+                        <p:outputLabel value="#{bundle.CreatePagosLabel_nopagos}" for="nopagos" />
+                        <p:inputText id="nopagos" value="#{pagosController.selected.nopagos}" title="#{bundle.CreatePagosTitle_nopagos}" />
+                        <p:outputLabel value="#{bundle.CreatePagosLabel_valorPagoCuota}" for="valorPagoCuota" />
+                        <p:inputText id="valorPagoCuota" value="#{pagosController.selected.valorPagoCuota}" title="#{bundle.CreatePagosTitle_valorPagoCuota}" />
+                        <p:outputLabel value="#{bundle.CreatePagosLabel_fechaAPagar}" for="fechaAPagar" />
+                        <p:calendar id="fechaAPagar" pattern="MM/dd/yyyy" value="#{pagosController.selected.fechaAPagar}" title="#{bundle.EditPagosTitle_fechaAPagar}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreatePagosLabel_hora}" for="hora" />
+                        <p:calendar id="hora" pattern="HH:mm:ss" value="#{pagosController.selected.hora}" title="#{bundle.EditPagosTitle_hora}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreatePagosLabel_estadocuotasIdestadocuotas}" for="estadocuotasIdestadocuotas" />
+                        <p:selectOneMenu id="estadocuotasIdestadocuotas" value="#{pagosController.selected.estadocuotasIdestadocuotas}" required="true" requiredMessage="#{bundle.EditPagosRequiredMessage_estadocuotasIdestadocuotas}">
+                            <f:selectItems value="#{estadocuotasController.itemsAvailableSelectOne}"
+                                           var="estadocuotasIdestadocuotasItem"
+                                           itemValue="#{estadocuotasIdestadocuotasItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreatePagosLabel_facturasIdfacturas}" for="facturasIdfacturas" />
+                        <p:selectOneMenu id="facturasIdfacturas" value="#{pagosController.selected.facturasIdfacturas}" required="true" requiredMessage="#{bundle.EditPagosRequiredMessage_facturasIdfacturas}">
+                            <f:selectItems value="#{facturasController.itemsAvailableSelectOne}"
+                                           var="facturasIdfacturasItem"
+                                           itemValue="#{facturasIdfacturasItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{pagosController.create}" value="#{bundle.Save}" update="display,:PagosListForm:datalist,:growl" oncomplete="handleSubmit(args,'PagosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PagosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

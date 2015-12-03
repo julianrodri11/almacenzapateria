@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UsuariosViewDlg" widgetVar="UsuariosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUsuariosTitle}">
+            <h:form id="UsuariosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{usuariosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_idusuarios}"/>
+                        <h:outputText value="#{usuariosController.selected.idusuarios}" title="#{bundle.ViewUsuariosTitle_idusuarios}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_primerNombre}"/>
+                        <h:outputText value="#{usuariosController.selected.primerNombre}" title="#{bundle.ViewUsuariosTitle_primerNombre}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_segundoNombre}"/>
+                        <h:outputText value="#{usuariosController.selected.segundoNombre}" title="#{bundle.ViewUsuariosTitle_segundoNombre}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_primerApellido}"/>
+                        <h:outputText value="#{usuariosController.selected.primerApellido}" title="#{bundle.ViewUsuariosTitle_primerApellido}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_segundoApellido}"/>
+                        <h:outputText value="#{usuariosController.selected.segundoApellido}" title="#{bundle.ViewUsuariosTitle_segundoApellido}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_celular}"/>
+                        <h:outputText value="#{usuariosController.selected.celular}" title="#{bundle.ViewUsuariosTitle_celular}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_direccion}"/>
+                        <h:outputText value="#{usuariosController.selected.direccion}" title="#{bundle.ViewUsuariosTitle_direccion}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_genero}"/>
+                        <h:outputText value="#{usuariosController.selected.genero}" title="#{bundle.ViewUsuariosTitle_genero}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_fechaNacimiento}"/>
+                        <h:outputText value="#{usuariosController.selected.fechaNacimiento}" title="#{bundle.ViewUsuariosTitle_fechaNacimiento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_foto}"/>
+                        <h:outputText value="#{usuariosController.selected.foto}" title="#{bundle.ViewUsuariosTitle_foto}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_correo}"/>
+                        <h:outputText value="#{usuariosController.selected.correo}" title="#{bundle.ViewUsuariosTitle_correo}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_contrasena}"/>
+                        <h:outputText value="#{usuariosController.selected.contrasena}" title="#{bundle.ViewUsuariosTitle_contrasena}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_almacenesIdalmacenes}"/>
+                        <h:outputText value="#{usuariosController.selected.almacenesIdalmacenes.almacen}" title="#{bundle.ViewUsuariosTitle_almacenesIdalmacenes}"/>
+                        <h:outputText value="#{bundle.ViewUsuariosLabel_ciudadesIdciudades}"/>
+                        <h:outputText value="#{usuariosController.selected.ciudadesIdciudades.ciudad}" title="#{bundle.ViewUsuariosTitle_ciudadesIdciudades}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UsuariosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

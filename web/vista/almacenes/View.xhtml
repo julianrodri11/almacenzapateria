@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AlmacenesViewDlg" widgetVar="AlmacenesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewAlmacenesTitle}">
+            <h:form id="AlmacenesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{almacenesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewAlmacenesLabel_idalmacenes}"/>
+                        <h:outputText value="#{almacenesController.selected.idalmacenes}" title="#{bundle.ViewAlmacenesTitle_idalmacenes}"/>
+                        <h:outputText value="#{bundle.ViewAlmacenesLabel_almacen}"/>
+                        <h:outputText value="#{almacenesController.selected.almacen}" title="#{bundle.ViewAlmacenesTitle_almacen}"/>
+                        <h:outputText value="#{bundle.ViewAlmacenesLabel_nit}"/>
+                        <h:outputText value="#{almacenesController.selected.nit}" title="#{bundle.ViewAlmacenesTitle_nit}"/>
+                        <h:outputText value="#{bundle.ViewAlmacenesLabel_correo}"/>
+                        <h:outputText value="#{almacenesController.selected.correo}" title="#{bundle.ViewAlmacenesTitle_correo}"/>
+                        <h:outputText value="#{bundle.ViewAlmacenesLabel_celular}"/>
+                        <h:outputText value="#{almacenesController.selected.celular}" title="#{bundle.ViewAlmacenesTitle_celular}"/>
+                        <h:outputText value="#{bundle.ViewAlmacenesLabel_telefono}"/>
+                        <h:outputText value="#{almacenesController.selected.telefono}" title="#{bundle.ViewAlmacenesTitle_telefono}"/>
+                        <h:outputText value="#{bundle.ViewAlmacenesLabel_direccion}"/>
+                        <h:outputText value="#{almacenesController.selected.direccion}" title="#{bundle.ViewAlmacenesTitle_direccion}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="AlmacenesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

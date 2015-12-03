@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BonosEditDlg" widgetVar="BonosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditBonosTitle}">
+            <h:form id="BonosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{bonosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditBonosLabel_idbonos}" for="idbonos" />
+                        <p:inputText id="idbonos" value="#{bonosController.selected.idbonos}" title="#{bundle.EditBonosTitle_idbonos}" required="true" requiredMessage="#{bundle.EditBonosRequiredMessage_idbonos}"/>
+                        <p:outputLabel value="#{bundle.EditBonosLabel_nombreBono}" for="nombreBono" />
+                        <p:inputText id="nombreBono" value="#{bonosController.selected.nombreBono}" title="#{bundle.EditBonosTitle_nombreBono}" />
+                        <p:outputLabel value="#{bundle.EditBonosLabel_valor}" for="valor" />
+                        <p:inputText id="valor" value="#{bonosController.selected.valor}" title="#{bundle.EditBonosTitle_valor}" />
+                        <p:outputLabel value="#{bundle.EditBonosLabel_usuariosIdusuarios}" for="usuariosIdusuarios" />
+                        <p:selectOneMenu id="usuariosIdusuarios" value="#{bonosController.selected.usuariosIdusuarios}" required="true" requiredMessage="#{bundle.EditBonosRequiredMessage_usuariosIdusuarios}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"
+                                           var="usuariosIdusuariosItem"
+                                           itemValue="#{usuariosIdusuariosItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{bonosController.update}" value="#{bundle.Save}" update="display,:BonosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'BonosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="BonosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

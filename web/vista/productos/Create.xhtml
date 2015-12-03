@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProductosCreateDlg" widgetVar="ProductosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateProductosTitle}">
+            <h:form id="ProductosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{productosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_idproductos}" for="idproductos" />
+                        <p:inputText id="idproductos" value="#{productosController.selected.idproductos}" title="#{bundle.CreateProductosTitle_idproductos}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_idproductos}"/>
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_producto}" for="producto" />
+                        <p:inputText id="producto" value="#{productosController.selected.producto}" title="#{bundle.CreateProductosTitle_producto}" />
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_precio}" for="precio" />
+                        <p:inputText id="precio" value="#{productosController.selected.precio}" title="#{bundle.CreateProductosTitle_precio}" />
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{productosController.selected.descripcion}" title="#{bundle.CreateProductosTitle_descripcion}" />
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_imagen}" for="imagen" />
+                        <p:inputText id="imagen" value="#{productosController.selected.imagen}" title="#{bundle.CreateProductosTitle_imagen}" />
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_color}" for="color" />
+                        <p:inputText id="color" value="#{productosController.selected.color}" title="#{bundle.CreateProductosTitle_color}" />
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_talla}" for="talla" />
+                        <p:inputText id="talla" value="#{productosController.selected.talla}" title="#{bundle.CreateProductosTitle_talla}" />
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_materialesIdmateriales}" for="materialesIdmateriales" />
+                        <p:selectOneMenu id="materialesIdmateriales" value="#{productosController.selected.materialesIdmateriales}" required="true" requiredMessage="#{bundle.EditProductosRequiredMessage_materialesIdmateriales}">
+                            <f:selectItems value="#{materialesController.itemsAvailableSelectOne}"
+                                           var="materialesIdmaterialesItem"
+                                           itemValue="#{materialesIdmaterialesItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_categoriasIdcategorias}" for="categoriasIdcategorias" />
+                        <p:selectOneMenu id="categoriasIdcategorias" value="#{productosController.selected.categoriasIdcategorias}" required="true" requiredMessage="#{bundle.EditProductosRequiredMessage_categoriasIdcategorias}">
+                            <f:selectItems value="#{categoriasController.itemsAvailableSelectOne}"
+                                           var="categoriasIdcategoriasItem"
+                                           itemValue="#{categoriasIdcategoriasItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_marcasIdmarcas}" for="marcasIdmarcas" />
+                        <p:selectOneMenu id="marcasIdmarcas" value="#{productosController.selected.marcasIdmarcas}" required="true" requiredMessage="#{bundle.EditProductosRequiredMessage_marcasIdmarcas}">
+                            <f:selectItems value="#{marcasController.itemsAvailableSelectOne}"
+                                           var="marcasIdmarcasItem"
+                                           itemValue="#{marcasIdmarcasItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_sucursalesIdsucursales}" for="sucursalesIdsucursales" />
+                        <p:selectOneMenu id="sucursalesIdsucursales" value="#{productosController.selected.sucursalesIdsucursales}" required="true" requiredMessage="#{bundle.EditProductosRequiredMessage_sucursalesIdsucursales}">
+                            <f:selectItems value="#{sucursalesController.itemsAvailableSelectOne}"
+                                           var="sucursalesIdsucursalesItem"
+                                           itemValue="#{sucursalesIdsucursalesItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{productosController.create}" value="#{bundle.Save}" update="display,:ProductosListForm:datalist,:growl" oncomplete="handleSubmit(args,'ProductosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ProductosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

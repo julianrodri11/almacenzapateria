@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="vista/facturas/List.xhtml" x="900" y="1200" zoom="true"/>
+        <Node id="welcomePrimefaces.xhtml" x="650" y="1050" zoom="true"/>
+        <Node id="vista/sucursales/Edit.xhtml" x="3150" y="150" zoom="true"/>
+        <Node id="vista/sucursales/View.xhtml" x="1400" y="1050" zoom="true"/>
+        <Node id="vista/facturas/View.xhtml" x="900" y="750" zoom="true"/>
+        <Node id="vista/materiales/Edit.xhtml" x="1900" y="750" zoom="true"/>
+        <Node id="vista/almacenes/Edit.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="vista/ciudades/Edit.xhtml" x="2650" y="300" zoom="true"/>
+        <Node id="vista/almacenes/View.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="vista/ciudades/View.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="vista/bonos/Create.xhtml" x="1400" y="900" zoom="true"/>
+        <Node id="vista/sucursales/List.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="vista/marcas/View.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="vista/paises/View.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="vista/facturas/Edit.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="vista/categorias/View.xhtml" x="150" y="1500" zoom="true"/>
+        <Node id="vista/sucursales/Create.xhtml" x="2400" y="300" zoom="true"/>
+        <Node id="vista/categorias/List.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="vista/bonos/Edit.xhtml" x="400" y="1650" zoom="true"/>
+        <Node id="vista/almacenes/List.xhtml" x="1900" y="600" zoom="true"/>
+        <Node id="vista/ventas/List.xhtml" x="150" y="1350" zoom="true"/>
+        <Node id="vista/departamentos/View.xhtml" x="2400" y="450" zoom="true"/>
+        <Node id="vista/usuarios/List.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="vista/paises/List.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="vista/ciudades/Create.xhtml" x="1400" y="600" zoom="true"/>
+        <Node id="vista/departamentos/List.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="vista/estadocuotas/Create.xhtml" x="1650" y="600" zoom="true"/>
+        <Node id="vista/categorias/Edit.xhtml" x="2900" y="150" zoom="true"/>
+        <Node id="vista/stock/Create.xhtml" x="2150" y="300" zoom="true"/>
+        <Node id="index.xhtml" x="1150" y="750" zoom="true"/>
+        <Node id="vista/perfiles/Create.xhtml" x="900" y="1050" zoom="true"/>
+        <Node id="vista/departamentos/Create.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="vista/stock/List.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="vista/paises/Edit.xhtml" x="1650" y="300" zoom="true"/>
+        <Node id="vista/usuarios/Create.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="vista/marcas/Create.xhtml" x="400" y="1500" zoom="true"/>
+        <Node id="vista/ventas/View.xhtml" x="2150" y="150" zoom="true"/>
+        <Node id="vista/pagos/Create.xhtml" x="1400" y="750" zoom="true"/>
+        <Node id="vista/marcas/Edit.xhtml" x="650" y="1200" zoom="true"/>
+        <Node id="vista/usuarios/Edit.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="vista/facturas/Create.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="vista/estadocuotas/Edit.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="vista/ciudades/List.xhtml" x="2150" y="450" zoom="true"/>
+        <Node id="vista/materiales/Create.xhtml" x="900" y="1350" zoom="true"/>
+        <Node id="vista/stock/View.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="vista/productos/List.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="vista/pagos/List.xhtml" x="1650" y="750" zoom="true"/>
+        <Node id="vista/paises/Create.xhtml" x="400" y="1050" zoom="true"/>
+        <Node id="vista/perfiles/Edit.xhtml" x="2650" y="150" zoom="true"/>
+        <Node id="vista/tipoventas/List.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="vista/productos/View.xhtml" x="1150" y="1050" zoom="true"/>
+        <Node id="vista/productos/Edit.xhtml" x="1150" y="600" zoom="true"/>
+        <Node id="vista/perfiles/View.xhtml" x="2400" y="150" zoom="true"/>
+        <Node id="vista/categorias/Create.xhtml" x="650" y="900" zoom="true"/>
+        <Node id="vista/cajas/List.xhtml" x="1650" y="900" zoom="true"/>
+        <Node id="vista/perfiles/List.xhtml" x="400" y="1200" zoom="true"/>
+        <Node id="vista/tipoventas/Create.xhtml" x="150" y="1200" zoom="true"/>
+        <Node id="vista/cajas/View.xhtml" x="150" y="1650" zoom="true"/>
+        <Node id="vista/productos/Create.xhtml" x="650" y="1500" zoom="true"/>
+        <Node id="template.xhtml" x="900" y="900" zoom="true"/>
+        <Node id="vista/tipoventas/Edit.xhtml" x="1150" y="900" zoom="true"/>
+        <Node id="vista/pagos/View.xhtml" x="150" y="1800" zoom="true"/>
+        <Node id="vista/bonos/List.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="vista/tipoventas/View.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="vista/cajas/Edit.xhtml" x="1650" y="450" zoom="true"/>
+        <Node id="vista/pagos/Edit.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="vista/estadocuotas/List.xhtml" x="1400" y="450" zoom="true"/>
+        <Node id="vista/bonos/View.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="vista/departamentos/Edit.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="vista/estadocuotas/View.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="vista/materiales/List.xhtml" x="400" y="1350" zoom="true"/>
+        <Node id="vista/ventas/Edit.xhtml" x="1900" y="450" zoom="true"/>
+        <Node id="vista/ventas/Create.xhtml" x="2150" y="600" zoom="true"/>
+        <Node id="vista/usuarios/View.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="vista/materiales/View.xhtml" x="650" y="1350" zoom="true"/>
+        <Node id="vista/cajas/Create.xhtml" x="1150" y="1200" zoom="true"/>
+        <Node id="vista/marcas/List.xhtml" x="1900" y="300" zoom="true"/>
+        <Node id="vista/almacenes/Create.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="vista/stock/Edit.xhtml" x="400" y="900" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

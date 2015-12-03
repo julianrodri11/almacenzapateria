@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EstadocuotasEditDlg" widgetVar="EstadocuotasEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditEstadocuotasTitle}">
+            <h:form id="EstadocuotasEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{estadocuotasController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditEstadocuotasLabel_idestadocuotas}" for="idestadocuotas" />
+                        <p:inputText id="idestadocuotas" value="#{estadocuotasController.selected.idestadocuotas}" title="#{bundle.EditEstadocuotasTitle_idestadocuotas}" required="true" requiredMessage="#{bundle.EditEstadocuotasRequiredMessage_idestadocuotas}"/>
+                        <p:outputLabel value="#{bundle.EditEstadocuotasLabel_nombreEstCuota}" for="nombreEstCuota" />
+                        <p:inputText id="nombreEstCuota" value="#{estadocuotasController.selected.nombreEstCuota}" title="#{bundle.EditEstadocuotasTitle_nombreEstCuota}" />
+                        <p:outputLabel value="#{bundle.EditEstadocuotasLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{estadocuotasController.selected.descripcion}" title="#{bundle.EditEstadocuotasTitle_descripcion}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{estadocuotasController.update}" value="#{bundle.Save}" update="display,:EstadocuotasListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EstadocuotasEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EstadocuotasEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

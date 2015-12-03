@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FacturasViewDlg" widgetVar="FacturasViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFacturasTitle}">
+            <h:form id="FacturasViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{facturasController.selected != null}">
+                        <h:outputText value="#{bundle.ViewFacturasLabel_idfacturas}"/>
+                        <h:outputText value="#{facturasController.selected.idfacturas}" title="#{bundle.ViewFacturasTitle_idfacturas}"/>
+                        <h:outputText value="#{bundle.ViewFacturasLabel_fecha}"/>
+                        <h:outputText value="#{facturasController.selected.fecha}" title="#{bundle.ViewFacturasTitle_fecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFacturasLabel_hora}"/>
+                        <h:outputText value="#{facturasController.selected.hora}" title="#{bundle.ViewFacturasTitle_hora}">
+                            <f:convertDateTime pattern="HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFacturasLabel_tipoventasIdtipoventas}"/>
+                        <h:outputText value="#{facturasController.selected.tipoventasIdtipoventas.tipoVenta}" title="#{bundle.ViewFacturasTitle_tipoventasIdtipoventas}"/>
+                        <h:outputText value="#{bundle.ViewFacturasLabel_clienteIdusuarios}"/>
+                        <h:outputText value="#{facturasController.selected.clienteIdusuarios} #{facturasController.selected.clienteIdusuarios.correo}" title="#{bundle.ViewFacturasTitle_clienteIdusuarios}"/>
+                        <h:outputText value="#{bundle.ViewFacturasLabel_cajeroIdusuarios}"/>
+                        <h:outputText value="#{facturasController.selected.cajeroIdusuarios} #{facturasController.selected.cajeroIdusuarios.correo}" title="#{bundle.ViewFacturasTitle_cajeroIdusuarios}"/>
+                        <h:outputText value="#{bundle.ViewFacturasLabel_cajasIdcajas}"/>
+                        <h:outputText value="#{facturasController.selected.cajasIdcajas.caja} #{facturasController.selected.cajasIdcajas.sucursalesIdsucursales}" title="#{bundle.ViewFacturasTitle_cajasIdcajas}"/>
+                        <h:outputText value="#{bundle.ViewFacturasLabel_ventasIdventas}"/>
+                        <h:outputText value="#{facturasController.selected.ventasIdventas}" title="#{bundle.ViewFacturasTitle_ventasIdventas}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="FacturasViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

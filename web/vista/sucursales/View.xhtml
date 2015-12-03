@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SucursalesViewDlg" widgetVar="SucursalesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewSucursalesTitle}">
+            <h:form id="SucursalesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{sucursalesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSucursalesLabel_idsucursales}"/>
+                        <h:outputText value="#{sucursalesController.selected.idsucursales}" title="#{bundle.ViewSucursalesTitle_idsucursales}"/>
+                        <h:outputText value="#{bundle.ViewSucursalesLabel_direccion}"/>
+                        <h:outputText value="#{sucursalesController.selected.direccion}" title="#{bundle.ViewSucursalesTitle_direccion}"/>
+                        <h:outputText value="#{bundle.ViewSucursalesLabel_correo}"/>
+                        <h:outputText value="#{sucursalesController.selected.correo}" title="#{bundle.ViewSucursalesTitle_correo}"/>
+                        <h:outputText value="#{bundle.ViewSucursalesLabel_celular}"/>
+                        <h:outputText value="#{sucursalesController.selected.celular}" title="#{bundle.ViewSucursalesTitle_celular}"/>
+                        <h:outputText value="#{bundle.ViewSucursalesLabel_telefono}"/>
+                        <h:outputText value="#{sucursalesController.selected.telefono}" title="#{bundle.ViewSucursalesTitle_telefono}"/>
+                        <h:outputText value="#{bundle.ViewSucursalesLabel_ciudadesIdciudades}"/>
+                        <h:outputText value="#{sucursalesController.selected.ciudadesIdciudades.ciudad}" title="#{bundle.ViewSucursalesTitle_ciudadesIdciudades}"/>
+                        <h:outputText value="#{bundle.ViewSucursalesLabel_almacenesIdalmacenes}"/>
+                        <h:outputText value="#{sucursalesController.selected.almacenesIdalmacenes.almacen}" title="#{bundle.ViewSucursalesTitle_almacenesIdalmacenes}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="SucursalesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PerfilesViewDlg" widgetVar="PerfilesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPerfilesTitle}">
+            <h:form id="PerfilesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{perfilesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPerfilesLabel_idperfiles}"/>
+                        <h:outputText value="#{perfilesController.selected.idperfiles}" title="#{bundle.ViewPerfilesTitle_idperfiles}"/>
+                        <h:outputText value="#{bundle.ViewPerfilesLabel_perfil}"/>
+                        <h:outputText value="#{perfilesController.selected.perfil}" title="#{bundle.ViewPerfilesTitle_perfil}"/>
+                        <h:outputText value="#{bundle.ViewPerfilesLabel_descripcion}"/>
+                        <h:outputText value="#{perfilesController.selected.descripcion}" title="#{bundle.ViewPerfilesTitle_descripcion}"/>
+                        <h:outputText value="#{bundle.ViewPerfilesLabel_usuariosIdusuarios}"/>
+                        <h:outputText value="#{perfilesController.selected.usuariosIdusuarios.correo} #{perfilesController.selected.usuariosIdusuarios}" title="#{bundle.ViewPerfilesTitle_usuariosIdusuarios}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PerfilesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

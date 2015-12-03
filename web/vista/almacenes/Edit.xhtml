@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AlmacenesEditDlg" widgetVar="AlmacenesEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditAlmacenesTitle}">
+            <h:form id="AlmacenesEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{almacenesController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditAlmacenesLabel_idalmacenes}" for="idalmacenes" />
+                        <p:inputText id="idalmacenes" value="#{almacenesController.selected.idalmacenes}" title="#{bundle.EditAlmacenesTitle_idalmacenes}" required="true" requiredMessage="#{bundle.EditAlmacenesRequiredMessage_idalmacenes}"/>
+                        <p:outputLabel value="#{bundle.EditAlmacenesLabel_almacen}" for="almacen" />
+                        <p:inputText id="almacen" value="#{almacenesController.selected.almacen}" title="#{bundle.EditAlmacenesTitle_almacen}" />
+                        <p:outputLabel value="#{bundle.EditAlmacenesLabel_nit}" for="nit" />
+                        <p:inputText id="nit" value="#{almacenesController.selected.nit}" title="#{bundle.EditAlmacenesTitle_nit}" />
+                        <p:outputLabel value="#{bundle.EditAlmacenesLabel_correo}" for="correo" />
+                        <p:inputText id="correo" value="#{almacenesController.selected.correo}" title="#{bundle.EditAlmacenesTitle_correo}" />
+                        <p:outputLabel value="#{bundle.EditAlmacenesLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{almacenesController.selected.celular}" title="#{bundle.EditAlmacenesTitle_celular}" />
+                        <p:outputLabel value="#{bundle.EditAlmacenesLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{almacenesController.selected.telefono}" title="#{bundle.EditAlmacenesTitle_telefono}" />
+                        <p:outputLabel value="#{bundle.EditAlmacenesLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{almacenesController.selected.direccion}" title="#{bundle.EditAlmacenesTitle_direccion}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{almacenesController.update}" value="#{bundle.Save}" update="display,:AlmacenesListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AlmacenesEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AlmacenesEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CajasCreateDlg" widgetVar="CajasCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCajasTitle}">
+            <h:form id="CajasCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cajasController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCajasLabel_idcajas}" for="idcajas" />
+                        <p:inputText id="idcajas" value="#{cajasController.selected.idcajas}" title="#{bundle.CreateCajasTitle_idcajas}" required="true" requiredMessage="#{bundle.CreateCajasRequiredMessage_idcajas}"/>
+                        <p:outputLabel value="#{bundle.CreateCajasLabel_caja}" for="caja" />
+                        <p:inputText id="caja" value="#{cajasController.selected.caja}" title="#{bundle.CreateCajasTitle_caja}" />
+                        <p:outputLabel value="#{bundle.CreateCajasLabel_sucursalesIdsucursales}" for="sucursalesIdsucursales" />
+                        <p:selectOneMenu id="sucursalesIdsucursales" value="#{cajasController.selected.sucursalesIdsucursales}" required="true" requiredMessage="#{bundle.EditCajasRequiredMessage_sucursalesIdsucursales}">
+                            <f:selectItems value="#{sucursalesController.itemsAvailableSelectOne}"
+                                           var="sucursalesIdsucursalesItem"
+                                           itemValue="#{sucursalesIdsucursalesItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cajasController.create}" value="#{bundle.Save}" update="display,:CajasListForm:datalist,:growl" oncomplete="handleSubmit(args,'CajasCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CajasCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

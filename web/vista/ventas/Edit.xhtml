@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VentasEditDlg" widgetVar="VentasEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditVentasTitle}">
+            <h:form id="VentasEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ventasController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditVentasLabel_idventas}" for="idventas" />
+                        <p:inputText id="idventas" value="#{ventasController.selected.idventas}" title="#{bundle.EditVentasTitle_idventas}" required="true" requiredMessage="#{bundle.EditVentasRequiredMessage_idventas}"/>
+                        <p:outputLabel value="#{bundle.EditVentasLabel_cantidad}" for="cantidad" />
+                        <p:inputText id="cantidad" value="#{ventasController.selected.cantidad}" title="#{bundle.EditVentasTitle_cantidad}" />
+                        <p:outputLabel value="#{bundle.EditVentasLabel_iva}" for="iva" />
+                        <p:inputText id="iva" value="#{ventasController.selected.iva}" title="#{bundle.EditVentasTitle_iva}" />
+                        <p:outputLabel value="#{bundle.EditVentasLabel_total}" for="total" />
+                        <p:inputText id="total" value="#{ventasController.selected.total}" title="#{bundle.EditVentasTitle_total}" />
+                        <p:outputLabel value="#{bundle.EditVentasLabel_productosIdproductos}" for="productosIdproductos" />
+                        <p:selectOneMenu id="productosIdproductos" value="#{ventasController.selected.productosIdproductos}" required="true" requiredMessage="#{bundle.EditVentasRequiredMessage_productosIdproductos}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{productosController.itemsAvailableSelectOne}"
+                                           var="productosIdproductosItem"
+                                           itemValue="#{productosIdproductosItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{ventasController.update}" value="#{bundle.Save}" update="display,:VentasListForm:datalist,:growl" oncomplete="handleSubmit(args, 'VentasEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="VentasEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
