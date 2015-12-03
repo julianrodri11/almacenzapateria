@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 body
 {
-    background-image: url(http://snacksdeestilo.com/wp-content/uploads/2011/11/ZapatosUFO2.jpg);
+    background-image: url(../imagenes/fondo.jpg);
     background-size: 100%;
     opacity: 0.8;
 }
@@ -17,9 +17,17 @@ body
 {
     width: 1024px;
     height: 1500px;
-    background-color: forestgreen;
+    /*background-color: forestgreen;*/
     border-radius: 10px;
     margin: 0 auto;
+}
+#contenedor:hover
+{
+    -moz-box-shadow: 0px 0px 30px #cfbf40;
+    -webkit-box-shadow: 0px 0px 30px #cfbf40;
+    box-shadow: 0px 0px 30px #cfbf40;
+    /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+
 }
 #div1
 {
@@ -35,7 +43,7 @@ body
 {
     width: 100%;
     height: 50px;
-    background-color: #cccc00;
+    background-color: #666666;
     font-family: sans-serif;
     font-size: 30px;
     text-align: center;
@@ -67,18 +75,33 @@ body
 {
     border-radius: 34%;
     transition: ease-out 0.6s;
+    background-color: #666666;
 }
 .opci:active
 {
-    background-color: #D20005;
+    background-color: #FFFFFF;
     transition: ease-out 0.2s;
 }
 .fotos
 {
     width: 180px;
     height: 130px;
+    border-radius: 20px 20px 0px 0px;
+    transition: ease-in 0.4s;
     /*background-color: #66ff00; */   
     background-image: url(https://s-media-cache-ak0.pinimg.com/736x/82/5c/31/825c31b8422b73f52e4f91be1469c9f7.jpg);
+    background-size: cover;
+    
+}
+.fotos:hover
+{
+    width: 180px;
+    height: 130px;
+    transition: ease-out 0.4s;
+    transform: rotate(360deg);
+    border-radius: 47%;
+    /*background-color: #66ff00; */   
+    /*background-image: url(https://s-media-cache-ak0.pinimg.com/736x/82/5c/31/825c31b8422b73f52e4f91be1469c9f7.jpg);*/
     background-size: cover;
     
 }
@@ -100,3 +123,80 @@ body
     border-radius: 0px 0px 20px 20px;
     
 }
+#f1
+{
+    background-image: url(../imagenes/opciones/almacen.jpg);
+}
+#f2
+{
+    background-image: url(../imagenes/opciones/bono.jpg);
+}
+#f3
+{
+    background-image: url(../imagenes/opciones/cajas.jpg);
+}
+#f4
+{
+    background-image: url(../imagenes/opciones/categorias.jpg);
+}
+#fc
+{
+    background-image: url(../imagenes/opciones/ciudades.jpg);
+}
+#f5
+{
+    background-image: url(../imagenes/opciones/departamentos.png);
+}
+#f6
+{
+    background-image: url(../imagenes/opciones/cuotas.jpg);
+}
+
+#f7
+{
+    background-image: url(../imagenes/opciones/facturas.jpg);
+}
+#f8
+{
+    background-image: url(../imagenes/opciones/marcas.jpg);
+}
+#f9
+{
+    background-image: url(../imagenes/opciones/materiales.jpg);
+}
+#f10
+{
+    background-image: url(../imagenes/opciones/pagos.jpg);
+}
+#f11
+{
+    background-image: url(../imagenes/opciones/paises.jpg);
+}#f12
+{
+    background-image: url(../imagenes/opciones/perfiles.jpg);
+}
+#f13
+{
+    background-image: url(../imagenes/opciones/productos.jpg);
+}
+#f14
+{
+    background-image: url(../imagenes/opciones/ventas.jpg);
+}
+#f15
+{
+    background-image: url(../imagenes/opciones/usuarios.jpg);
+}
+#f16
+{
+    background-image: url(../imagenes/opciones/stock.jpg);
+}
+#f17
+{
+    background-image: url(../imagenes/opciones/sucursales.png);
+}
+#f18
+{
+    background-image: url(../imagenes/opciones/tipoventas.jpg);
+}
+

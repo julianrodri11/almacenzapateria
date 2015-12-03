@@ -13,9 +13,15 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{perfilesController.selected != null}">
                         <p:outputLabel value="#{bundle.CreatePerfilesLabel_idperfiles}" for="idperfiles" />
-                        <p:inputText id="idperfiles" value="#{perfilesController.selected.idperfiles}" title="#{bundle.CreatePerfilesTitle_idperfiles}" required="true" requiredMessage="#{bundle.CreatePerfilesRequiredMessage_idperfiles}"/>
+                        <p:inputText id="idperfiles" value="#{perfilesController.selected.idperfiles}" title="#{bundle.CreatePerfilesTitle_idperfiles}" required="true" requiredMessage="#{bundle.CreatePerfilesRequiredMessage_idperfiles}"/>                        
                         <p:outputLabel value="#{bundle.CreatePerfilesLabel_perfil}" for="perfil" />
-                        <p:inputText id="perfil" value="#{perfilesController.selected.perfil}" title="#{bundle.CreatePerfilesTitle_perfil}" />
+                        <p:selectOneMenu id="perfil" value="#{perfilesController.selected.perfil}" style="width:125px" effect="fold" required="true">
+                            <f:selectItem itemLabel="Selecione" itemValue="" />
+                            <f:selectItem itemLabel="administrador" itemValue="administrador" />
+                            <f:selectItem itemLabel="cliente" itemValue="cliente" />
+                            <f:selectItem itemLabel="cajero" itemValue="cajero" />
+                            <f:selectItem itemLabel="almacenista" itemValue="almacenista" />
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreatePerfilesLabel_descripcion}" for="descripcion" />
                         <p:inputText id="descripcion" value="#{perfilesController.selected.descripcion}" title="#{bundle.CreatePerfilesTitle_descripcion}" />
                         <p:outputLabel value="#{bundle.CreatePerfilesLabel_usuariosIdusuarios}" for="usuariosIdusuarios" />
